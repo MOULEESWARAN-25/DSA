@@ -1,0 +1,59 @@
+class Solution {
+
+1. Normal Recursion
+    // int min = Integer.MAX_VALUE;
+
+    // void recursion(int len, int prev, int n, int steps) {
+    //     if (len > n)
+    //         return;
+    //     if (len == n) {
+    //         min = Math.min(min, steps);
+    //         return;
+    //     }
+    //     len += prev;
+    //     recursion(len, prev, n, steps + 1);
+    //     recursion(len, len, n, steps + 2);
+    // }
+
+    // int recursion(int len, int prev, int n){
+    //     if(len > n) return Integer.MAX_VALUE / 2;
+    //     if(len == n) return 0;
+    //     len += prev;
+    //     int paste = 1 + recursion(len, prev, n);
+    //     int copy_paste = 2 + recursion(len, len, n);
+    //     return Math.min(paste, copy_paste);
+    // }
+
+    int recursion(int len, int prev, int n, int[][] dp) {
+        if (len > n)
+            return Integer.MAX_VALUE / 2;
+        if (len == n)
+            return 0;
+        if (dp[len][prev] != -1)
+            return dp[len][prev];
+
+        int paste = 1 + recursion(len + prev, prev, n, dp);
+        int copy_paste = 2 + recursion(len + len, len, n, dp);
+
+        return dp[len][prev] = Math.min(paste, copy_paste);
+    }
+
+    public int minSteps(int n) {
+        if (n == 1)
+            return 0;
+
+        int[][] dp = new int[n + 1][n + 1];
+        for (int i = 0; i <= n; i++)
+            Arrays.fill(dp[i], -1);
+
+        int ans = 1 + recursion(1, 1, n, dp);
+        // for(int i = 0 ; i <= n ; i++){
+        //     for(int j = 0 ; j <= n ; j++){
+        //         System.out.printf("%d ", dp[i][j]);
+        //     }
+        //     System.out.println();
+        // }
+        return ans;
+    }
+
+}
