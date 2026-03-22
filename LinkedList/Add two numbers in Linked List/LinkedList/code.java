@@ -1,4 +1,13 @@
-package LinkedList;
+
+class ListNode {
+    ListNode next;
+    int data;
+
+    public ListNode(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
 
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
@@ -57,40 +66,42 @@ class Solution {
 
 // Edge cases :
 
-// 1. 9 9 9 9 
-//    9 9 9 9
-//    8 9 9 9 1
+// 1. 9 9 9 9
+// 9 9 9 9
+// 8 9 9 9 1
 
-//    9 + 9 + 0 (carry) = 18
-//    carry = 1
-//    remaining  = 8   8
+// 9 + 9 + 0 (carry) = 18
+// carry = 1
+// remaining = 8 8
 
-//    9 + 9 + 1 = 19
-//    carry = 1
-//    remaining = 9    8 9
+// 9 + 9 + 1 = 19
+// carry = 1
+// remaining = 9 8 9
 
-//    9 + 9 + 1 = 19
-//    carry = 1
-//    remaining = 9    8 9 9
+// 9 + 9 + 1 = 19
+// carry = 1
+// remaining = 9 8 9 9
 
-//    9 + 9 + 1 = 19
-//    carry = 1
-//    remaining = 9    8 9 9 9
+// 9 + 9 + 1 = 19
+// carry = 1
+// remaining = 9 8 9 9 9
 
-//    at the end carry should be check if it contains 1 it should be added atlast of the linked list
-
+// at the end carry should be check if it contains 1 it should be added atlast
+// of the linked list
 
 // 2. 9 9
-//    9 
-//    8 0 1
+// 9
+// 8 0 1
 
-//    9 + 9 + 0 = 18
-//    carry = 1
-//    remaining = 8    8
+// 9 + 9 + 0 = 18
+// carry = 1
+// remaining = 8 8
 
-//    9 + 1 = 10
-//    carry = 1
-//    remaining = 0    8 0
+// 9 + 1 = 10
+// carry = 1
+// remaining = 0 8 0
 
-//    carry is added => 8 0 1
-//    here there is is no more number for addition, so add the remaining atlast of the linked list, but here the carry should be check, if it is 1, the one also should be added
+// carry is added => 8 0 1
+// here there is is no more number for addition, so add the remaining atlast of
+// the linked list, but here the carry should be check, if it is 1, the one also
+// should be added
