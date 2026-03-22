@@ -1,5 +1,3 @@
-package LinkedList.MoveLastNElementstoFront;
-
 
 class Node {
     Node next;
