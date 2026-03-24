@@ -1,4 +1,4 @@
-package LinkedList.DLL;
+package LinkedList.DoublyLinkedListImplementation;
 
 import java.util.*;
 
