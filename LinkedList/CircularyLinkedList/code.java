@@ -1,4 +1,4 @@
-package LinkedList.CircularyLinkedListImplementation;
+package LinkedList.CircularyLinkedList;
 
 class Node {
     Node next;
@@ -18,12 +18,12 @@ class CirucularLinkedList {
 
         if (head == null) {
             head = newNode;
+            newNode.next = head;
             tail = newNode;
-            tail.next = head;
         } else {
             tail.next = newNode;
+            newNode.next = head;
             tail = newNode;
-            tail.next = head;
         }
     }
 
@@ -34,7 +34,7 @@ class CirucularLinkedList {
         }
 
         Node curr = head;
-        do {
+        do { 
             System.out.println(curr.data);
             curr = curr.next;
         } while (curr != head);
