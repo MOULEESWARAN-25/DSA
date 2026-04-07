@@ -1,6 +1,7 @@
+package LCM;
 import java.util.*;
 
-public class LCM {
+public class code {
     public static int findGCD(int num1, int num2) {
         while (num1 != num2) {
             if (num1 > num2) {
